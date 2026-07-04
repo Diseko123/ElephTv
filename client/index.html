@@ -1,12 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ElephTv</title>
+    <title>ELEPH TV</title>
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Polyfills for Node.js modules -->
+    <script>
+      window.global = window;
+      window.process = { env: {} };
+      
+      // Mock Node.js modules
+      window.require = function(module) {
+        if (module === 'fs') return {};
+        if (module === 'os') return {};
+        if (module === 'path') return {};
+        if (module === 'crypto') return {};
+        if (module === 'stream') return {};
+        if (module === 'http') return {};
+        if (module === 'https') return {};
+        if (module === 'zlib') return {};
+        if (module === 'url') return {};
+        if (module === 'util') return {};
+        if (module === 'buffer') return {};
+        if (module === 'events') return {};
+        if (module === 'querystring') return {};
+        return {};
+      };
+    </script>
+    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
