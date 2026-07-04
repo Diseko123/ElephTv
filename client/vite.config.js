@@ -5,27 +5,42 @@ export default defineConfig({
   plugins: [react()],
   base: "./",
   server: {
-    allowedHosts: [
-      'elephTV-front-end.onrender.com',
-      '*.onrender.com',
-      'localhost'
-    ],
+    allowedHosts: ['*.onrender.com', 'localhost'],
     host: true
   },
   preview: {
-    allowedHosts: [
-      'elephTV-front-end.onrender.com',
-      '*.onrender.com'
-    ],
+    allowedHosts: ['*.onrender.com'],
     host: true
   },
+  define: {
+    'process.env': {},
+    'global': 'window'
+  },
+  resolve: {
+    alias: {
+      'fs': 'empty',
+      'path': 'empty',
+      'os': 'empty'
+    }
+  },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
+    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
+    esbuildOptions: {
+      target: 'es2020'
+    }
   },
   build: {
     commonjsOptions: {
       include: [/node_modules/],
       transformMixedEsModules: true
-    }
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom']
+        }
+      }
+    },
+    target: 'es2020'
   }
 });
