@@ -1,4 +1,10 @@
 {
+  "type": "module",
+  "name": "elephtv-client",
+  "version": "1.0.0",
+  ...
+}
+{
   "name": "elephtv-frontend",
   "version": "1.0.0",
   "private": true,
