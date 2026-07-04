@@ -20,7 +20,17 @@ export default defineConfig({
     alias: {
       'fs': 'empty',
       'path': 'empty',
-      'os': 'empty'
+      'os': 'empty',
+      'crypto': 'empty',
+      'stream': 'empty',
+      'http': 'empty',
+      'https': 'empty',
+      'zlib': 'empty',
+      'url': 'empty',
+      'util': 'empty',
+      'buffer': 'empty',
+      'events': 'empty',
+      'querystring': 'empty'
     }
   },
   optimizeDeps: {
