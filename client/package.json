@@ -1,0 +1,20 @@
+{
+  "name": "elephtv-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "lucide-react": "^1.22.0",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {}
+}
