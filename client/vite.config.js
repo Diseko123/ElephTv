@@ -10,18 +10,20 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
-    exclude: ['esbuild']  // ⬅️ IMPORTANT!
+    exclude: ['esbuild']
   },
   build: {
     commonjsOptions: {
-      transformMixedEsModules: true,
-      exclude: [/esbuild/]  // ⬅️ IMPORTANT!
+      transformMixedEsModules: true
     },
     rollupOptions: {
-      external: ['esbuild'],  // ⬅️ IMPORTANT!
+      external: ['esbuild'],
       output: {
-        manualChunks: undefined
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom']
+        }
       }
-    }
+    },
+    target: 'es2020'
   }
 });
