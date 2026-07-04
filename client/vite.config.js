@@ -7,8 +7,17 @@ export default defineConfig({
   server: {
     allowedHosts: [
       'elephTV-front-end.onrender.com',
-      '.onrender.com'
-    ]
+      '*.onrender.com',
+      'localhost'
+    ],
+    host: true
+  },
+  preview: {
+    allowedHosts: [
+      'elephTV-front-end.onrender.com',
+      '*.onrender.com'
+    ],
+    host: true
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
