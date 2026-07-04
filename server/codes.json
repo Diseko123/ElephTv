@@ -1,0 +1,36 @@
+{
+  "Premium": [
+    {
+      "code": "ELPH-PREMIUM-001",
+      "id": "b18ac99219278e6c",
+      "plan": "Premium",
+      "status": "Available",
+      "dateAdded": "2026-07-04T00:19:29.180Z"
+    },
+    {
+      "code": "ELPH-PREMIUM-002",
+      "id": "c28701a329bc534d",
+      "plan": "Premium",
+      "status": "Available",
+      "dateAdded": "2026-07-04T00:19:29.180Z"
+    }
+  ],
+  "Basic": [
+    {
+      "code": "ELPH-BASIC-001",
+      "id": "d07668a6ed3015b0",
+      "plan": "Basic",
+      "status": "Used",
+      "dateAdded": "2026-07-04T00:19:29.176Z",
+      "deliveredAt": "2026-07-04T00:19:29.177Z",
+      "deliveredTo": "disekoemmanuel@gmail.com"
+    },
+    {
+      "code": "ELPH-BASIC-002",
+      "id": "81bd04ecb367c65f",
+      "plan": "Basic",
+      "status": "Available",
+      "dateAdded": "2026-07-04T00:19:29.176Z"
+    }
+  ]
+}
