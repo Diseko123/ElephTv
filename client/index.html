@@ -9,27 +9,47 @@
   <body>
     <div id="root"></div>
     
-    <!-- Polyfills for Node.js modules -->
+    <!-- Comprehensive polyfills for Node.js -->
     <script>
       window.global = window;
-      window.process = { env: {} };
+      window.process = { 
+        env: {},
+        version: '',
+        versions: { node: '' },
+        platform: 'browser',
+        cwd: () => '/',
+        nextTick: (fn) => setTimeout(fn, 0),
+        argv: [],
+        exit: () => {}
+      };
       
-      // Mock Node.js modules
+      window.Buffer = window.Buffer || {
+        from: (data) => data,
+        isBuffer: () => false
+      };
+      
+      // Full Node.js module mocks
       window.require = function(module) {
-        if (module === 'fs') return {};
-        if (module === 'os') return {};
-        if (module === 'path') return {};
-        if (module === 'crypto') return {};
-        if (module === 'stream') return {};
-        if (module === 'http') return {};
-        if (module === 'https') return {};
-        if (module === 'zlib') return {};
-        if (module === 'url') return {};
-        if (module === 'util') return {};
-        if (module === 'buffer') return {};
-        if (module === 'events') return {};
-        if (module === 'querystring') return {};
-        return {};
+        const mocks = {
+          'fs': { readFileSync: () => '', writeFileSync: () => {}, existsSync: () => false },
+          'os': { platform: () => 'browser', cpus: () => [], totalmem: () => 0 },
+          'path': { join: () => '', resolve: () => '', dirname: () => '', basename: () => '' },
+          'crypto': { randomBytes: () => Buffer.from('') },
+          'stream': { Readable: class {}, Writable: class {} },
+          'http': { createServer: () => {} },
+          'https': { createServer: () => {} },
+          'url': { parse: () => ({}) },
+          'util': { promisify: (fn) => fn },
+          'buffer': { Buffer: window.Buffer },
+          'events': { EventEmitter: class {} },
+          'querystring': { parse: () => {}, stringify: () => '' },
+          'child_process': { exec: () => {}, spawn: () => {} },
+          'net': { createServer: () => {} },
+          'tls': { createServer: () => {} },
+          'zlib': { createGzip: () => {}, createGunzip: () => {} },
+          'vm': { runInContext: () => {} }
+        };
+        return mocks[module] || {};
       };
     </script>
     
