@@ -1,58 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ELEPH TV</title>
+    <title>client</title>
   </head>
   <body>
     <div id="root"></div>
-    
-    <!-- Comprehensive polyfills for Node.js -->
-    <script>
-      window.global = window;
-      window.process = { 
-        env: {},
-        version: '',
-        versions: { node: '' },
-        platform: 'browser',
-        cwd: () => '/',
-        nextTick: (fn) => setTimeout(fn, 0),
-        argv: [],
-        exit: () => {}
-      };
-      
-      window.Buffer = window.Buffer || {
-        from: (data) => data,
-        isBuffer: () => false
-      };
-      
-      // Full Node.js module mocks
-      window.require = function(module) {
-        const mocks = {
-          'fs': { readFileSync: () => '', writeFileSync: () => {}, existsSync: () => false },
-          'os': { platform: () => 'browser', cpus: () => [], totalmem: () => 0 },
-          'path': { join: () => '', resolve: () => '', dirname: () => '', basename: () => '' },
-          'crypto': { randomBytes: () => Buffer.from('') },
-          'stream': { Readable: class {}, Writable: class {} },
-          'http': { createServer: () => {} },
-          'https': { createServer: () => {} },
-          'url': { parse: () => ({}) },
-          'util': { promisify: (fn) => fn },
-          'buffer': { Buffer: window.Buffer },
-          'events': { EventEmitter: class {} },
-          'querystring': { parse: () => {}, stringify: () => '' },
-          'child_process': { exec: () => {}, spawn: () => {} },
-          'net': { createServer: () => {} },
-          'tls': { createServer: () => {} },
-          'zlib': { createGzip: () => {}, createGunzip: () => {} },
-          'vm': { runInContext: () => {} }
-        };
-        return mocks[module] || {};
-      };
-    </script>
-    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
