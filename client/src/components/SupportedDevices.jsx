@@ -9,18 +9,13 @@ const devices = [
 ];
 
 function DeviceIcon({ id }) {
-  const icons = {
-    "smart-tv": Tv,
-    "android-phone": Smartphone,
-    "android-tv-box": MonitorSmartphone,
-    laptop: Laptop,
-    tablet: Tablet,
-  };
-  const Icon = icons[id] || Tv;
-
   return (
     <span className="device-icon">
-      <Icon aria-hidden="true" size={42} strokeWidth={2} />
+      {id === "android-phone" && <Smartphone aria-hidden="true" size={42} strokeWidth={2} />}
+      {id === "android-tv-box" && <MonitorSmartphone aria-hidden="true" size={42} strokeWidth={2} />}
+      {id === "laptop" && <Laptop aria-hidden="true" size={42} strokeWidth={2} />}
+      {id === "tablet" && <Tablet aria-hidden="true" size={42} strokeWidth={2} />}
+      {(id === "smart-tv" || !id) && <Tv aria-hidden="true" size={42} strokeWidth={2} />}
     </span>
   );
 }
