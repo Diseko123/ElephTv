@@ -7,16 +7,11 @@ const contactMethods = [
 ];
 
 function ContactIcon({ id }) {
-  const icons = {
-    whatsapp: MessageCircle,
-    email: Mail,
-    "business-hours": Clock3,
-  };
-  const Icon = icons[id] || MessageCircle;
-
   return (
     <span className="contact-icon">
-      <Icon aria-hidden="true" size={42} strokeWidth={2} />
+      {id === "email" && <Mail aria-hidden="true" size={42} strokeWidth={2} />}
+      {id === "business-hours" && <Clock3 aria-hidden="true" size={42} strokeWidth={2} />}
+      {(id === "whatsapp" || !id) && <MessageCircle aria-hidden="true" size={42} strokeWidth={2} />}
     </span>
   );
 }
