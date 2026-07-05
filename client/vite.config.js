@@ -1,29 +1,7 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "./",
-  define: {
-    'process.env': {},
-    'global': 'window'
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
-    exclude: ['esbuild']
-  },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true
-    },
-    rollupOptions: {
-      external: ['esbuild'],
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom']
-        }
-      }
-    },
-    target: 'es2020'
-  }
-});
+})
